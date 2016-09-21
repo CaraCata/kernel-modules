@@ -1,0 +1,29 @@
+Script started on Wed 21 Sep 2016 07:26:23 PM CEST
+[01;32mcata@scrapper-mint[01;34m ~/kermod $[00m make
+make -C /lib/modules/3.16.0-38-generic/build M=/home/cata/kermod modules
+make[1]: Entering directory `/usr/src/linux-headers-3.16.0-38-generic'
+  CC [M]  /home/cata/kermod/pinguin_module.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/cata/kermod/pinguin_module.mod.o
+  LD [M]  /home/cata/kermod/pinguin_module.ko
+make[1]: Leaving directory `/usr/src/linux-headers-3.16.0-38-generic'
+[01;32mcata@scrapper-mint[01;34m ~/kermod $[00m ls -l
+total 32
+-rw-r--r-- 1 cata cata  154 Sep 21 18:44 Makefile
+-rw-r--r-- 1 cata cata   43 Sep 21 19:26 modules.order
+-rw-r--r-- 1 cata cata    0 Sep 21 19:26 Module.symvers
+-rw-r--r-- 1 cata cata    0 Sep 21 19:26 out1.txt
+-rw-r--r-- 1 cata cata 1001 Sep 21 19:20 out.txt
+-rw-r--r-- 1 cata cata  482 Sep 21 19:16 pinguin_module.c
+-rw-r--r-- 1 cata cata 3546 Sep 21 19:26 pinguin_module.ko
+-rw-r--r-- 1 cata cata  713 Sep 21 19:26 pinguin_module.mod.c
+-rw-r--r-- 1 cata cata 2528 Sep 21 19:26 pinguin_module.mod.o
+-rw-r--r-- 1 cata cata 1904 Sep 21 19:26 pinguin_module.o
+[01;32mcata@scrapper-mint[01;34m ~/kermod $[00m sudo insmod pinguin_module.ko 
+[sudo] password for cata: 
+[01;32mcata@scrapper-mint[01;34m ~/kermod $[00m sudo rmmod pinguin_module 
+[01;32mcata@scrapper-mint[01;34m ~/kermod $[00m dmesg 0[K-k | tail -n 2
+[ 8869.014227] Hello World!
+[ 8873.920750] Bye bye little pinguin!
+[01;32mcata@scrapper-mint[01;34m ~/kermod $[00m exit
